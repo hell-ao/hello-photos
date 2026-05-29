@@ -17,12 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
       .album-actions .comment { background: #fff; color: #333; }
       .album-actions .manage { background: #000; color: #fff; }
 
+      /* 全屏分类条 + 全屏分割线 */
       .cate-tabs {
         display: flex;
         gap: 10px;
-        margin-bottom: 10px;
-        padding-bottom: 16px;
+        margin: 0 -16px 0 -16px;
+        padding: 0 16px 16px 16px;
         border-bottom: 1px solid #eee;
+        box-shadow: 0 4px 6px -4px rgba(0,0,0,0.06);
+        width: calc(100% + 32px);
       }
       .cate-tab {
         padding: 8px 16px;
@@ -34,12 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       .cate-tab.active { background: #409eff; color: #fff; }
 
-      /* ========== 新地图按钮样式 ========== */
       .location-btn {
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        margin-bottom: 16px;
+        margin: 12px 0 8px 0;
         padding: 6px 12px;
         background: #f0f7ff;
         color: #1677ff;
@@ -52,13 +54,21 @@ document.addEventListener('DOMContentLoaded', () => {
         content: "🗺️";
       }
 
+      /* 🔥 渐变背景无缝铺满 */
+      .album-bg-full {
+        background: linear-gradient(180deg, #fcf1ed 0%, #f2eadd 50%, #ebe3d6 100%);
+        margin: 0 -16px;
+        padding: 0 16px 16px 16px;
+        width: calc(100% + 32px);
+        min-height: calc(100vh - 250px);
+      }
+
       .album-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-        background-color: #f4eae3;
-        padding: 16px;
-        border-radius: 12px;
+        gap: 10px;
+        padding: 0;
+        border-radius: 0;
       }
       .album-card {
         background: #fff;
@@ -162,10 +172,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="manage">管理</span>
         </div>
       </div>
+
+      <!-- 分类条 -->
       <div id="cateTabs" class="cate-tabs"></div>
-      <!-- 新的地图按钮容器 -->
-      <div id="locationBtnContainer"></div>
-      <div id="albumGrid" class="album-grid"></div>
+
+      <!-- 全屏渐变背景 -->
+      <div class="album-bg-full">
+        <div id="locationBtnContainer"></div>
+        <div id="albumGrid" class="album-grid"></div>
+      </div>
     </div>
 
     <div id="detailPage" class="detail-page">
@@ -203,7 +218,6 @@ document.addEventListener('DOMContentLoaded', () => {
       };
       cateTabs.appendChild(tab);
     });
-    // 默认选中第一个分类
     currentCategory = Object.keys(allAlbums)[0];
     render();
   }
@@ -223,19 +237,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.getElementById("albumGrid");
     grid.innerHTML = "";
 
-    // ========== ✅ 修复：地图按钮显示 mapLabel 名字 ==========
     const locationBtnContainer = document.getElementById("locationBtnContainer");
     if (catData && catData.mapUrl) {
       locationBtnContainer.innerHTML = `
         <button class="location-btn" onclick="openMap('${catData.mapUrl}')">
-          ${catData.mapLabel}  <!-- 这里修复了！ -->
+          ${catData.mapLabel}
         </button>
       `;
     } else {
       locationBtnContainer.innerHTML = "";
     }
 
-    // 渲染相册列表
     list.forEach(album => {
       const card = document.createElement("div");
       card.className = "album-card";
@@ -269,14 +281,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 打开地图页面
   window.openMap = (url) => {
     document.getElementById("albumPage").style.display = "none";
     document.getElementById("mapPage").style.display = "block";
     document.getElementById("mapIframe").src = url;
   };
 
-  // 从地图页面返回
   window.backFromMap = () => {
     document.getElementById("mapPage").style.display = "none";
     document.getElementById("albumPage").style.display = "block";

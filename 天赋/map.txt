@@ -1,2 +1,2 @@
-天赋广场-1号楼
-https://map.baidu.com/search/%E5%A4%A9%E8%B5%8B%E5%B9%BF%E5%9C%BA-1%E5%8F%B7%E6%A5%BC/@13046293.205,4031437.66,19z?querytype=s&da_src=shareurl&wd=%E5%A4%A9%E8%B5%8B%E5%B9%BF%E5%9C%BA-1%E5%8F%B7%E6%A5%BC&c=75&src=0&wd2=%E5%BE%90%E5%B7%9E%E5%B8%82%E9%93%9C%E5%B1%B1%E5%8C%BA&pn=0&sug=1&l=13&b=(11614798,3585523;11647438,3604851)&from=webmap&biz_forward=%7B%22scaler%22:1,%22styles%22:%22pl%22%7D&sug_forward=988fd5bfc404036b00ff2da0&device_ratio=1
+天赋广场-10号楼
+https://map.baidu.com/search/%E5%BE%90%E5%B7%9E%E5%A4%A9%E8%B5%8B%E5%B9%BF%E5%9C%BA10%E5%8F%B7%E6%A5%BC/@13046159.146944446,4031378.685,19z?querytype=s&wd=%E5%BE%90%E5%B7%9E%E5%A4%A9%E8%B5%8B%E5%B9%BF%E5%9C%BA10%E5%8F%B7%E6%A5%BC&c=75&provider=pc-aladin&pn=0&device_ratio=1&da_src=shareurl
