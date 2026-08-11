@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   `;
 
-  const CORRECT_PASSWORD = "135456";
+  const CORRECT_PASSWORD = "785612";
   let allAlbums = {};
   let currentCategory = "";
 
